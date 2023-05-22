@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contas do mês</title>
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+            padding: 0;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+
+        }
+
+        section {
+            display: flex;
+            justify-content: end;
+        }
+
+
+        .form {
+            margin-left: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: .4rem;
+        }
+
+        hr {
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <section> <img src="./Captura de tela 2023-05-22 142125.png" alt=""></section>
+        <article class="form">
+            <h2>Conta do mês</h2>
+            <label for="inDescricao">Descrição:</label>
+            <input type="text" id="inDescricao">
+            <label for="inValor">Valor da conta:</label>
+            <input type="number" id="inValor">
+            <button type="button" id="show">Registrar Conta</button>
+            <hr>
+            <h4 id="outPut"></h4>
+
+        </article>
+    </main>
+
+    <script>
+
+        const button = document.getElementById('show')
+        const inDescricao = document.getElementById('inDescricao')
+        const inValor = document.getElementById('inValor')
+
+        button.addEventListener('click', () => {
+            let valor = inValor.value
+            let descricao = inDescricao.value
+
+            if (valor == 0 || isNaN(valor)) {
+                alert("Digite um número válido")
+                inValor.focus()
+                return
+            }
+
+            let contas = []
+            
+        })
+    </script>
+</body>
+
+</html>

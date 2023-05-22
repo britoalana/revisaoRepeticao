@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revisão - Estrutura de repetição</title>
+</head>
+
+<body>
+    <!-- While -- não temos ideia de quantas vezes o código precisará repetir
+    já o For é para quando sabemos quantas vezes o código irá se repetir -->
+
+    <script>
+        function getInteiroAleatorioEntre(min, max) {
+            const valor = Math.random() * (min - max) - min
+            return Math.floor(valor)
+            //floor - arredonda
+        }
+        console.log(getInteiroAleatorioEntre(-1, 15))
+
+        let opcao = 1
+
+        //só para quando a opção for igual a -1
+        while (opcao != -1) {
+            opcao = getInteiroAleatorioEntre(-1, 25)
+            console.log(`Opção escolhida: ${opcao}`)
+        }
+        console.log("Tchau")
+
+
+        for (let i = 1; i <= 10; i++) {
+            console.log(`i: ${i}`)
+        }
+
+        const notas = [6.8, 3.1, 2.4, 9.5, 7.1]
+        for (let i = 0; i < notas.length; i++) {
+            if(notas[i] > 5){
+                console.log(`notas: ${notas[i]}`)
+            }
+            
+        }
+
+    </script>
+</body>
+
+</html>

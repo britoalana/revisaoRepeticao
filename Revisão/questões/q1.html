@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+            padding: 0;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+
+            /* display: grid;
+            grid-template-columns: 1fr 1fr;
+            height: 100vh;
+            align-content: center;
+            gap: 1rem; */
+        }
+
+        section {
+            display: flex;
+            justify-content: end;
+        }
+
+        .form {
+            margin-left: .5rem;
+        }
+
+        hr {
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <section> <img src="./Captura de tela 2023-05-22 142125.png" alt=""></section>
+        <article class="form">
+            <h2>Programa tabuada</h2>
+            <label for="inNumero">Número:</label>
+            <input type="number" id="inNumero">
+            <button type="button" id="show">Mostrar Tabuada</button>
+            <hr>
+            <h4 id="outPut"></h4>
+
+        </article>
+    </main>
+
+
+    <script>
+        const button = document.getElementById('show')
+        const inNumero = document.getElementById('inNumero')
+        const outPut = document.getElementById('outPut')
+
+        button.addEventListener('click', () => {
+            let number = Number(inNumero.value)
+
+            if (number === 0 || isNaN(number)) {
+                alert("Digite um número válido")
+                inNumero.focus()
+                return
+            }
+
+            let resposta = ''
+
+            for (let i = 1; i <= 10; i++) {
+                resposta = `${resposta + number} X ${i} = ${number * i} <br>`
+            }
+            outPut.innerHTML = `${resposta}`
+        })
+
+    </script>
+</body>
+
+</html>
