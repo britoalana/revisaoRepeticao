@@ -37,6 +37,10 @@
         hr {
             margin-top: 1rem;
         }
+
+        .linha {
+            border: 1px solid black;
+        }
     </style>
 </head>
 
@@ -51,7 +55,11 @@
             <input type="number" id="inValor">
             <button type="button" id="show">Registrar Conta</button>
             <hr>
-            <h4 id="outPut"></h4>
+            <div class="resultado">
+                <p id="outPut"></p>
+                <div class="linha"></div>
+                <p id="outSoma"></p>
+            </div>
 
         </article>
     </main>
@@ -61,10 +69,22 @@
         const button = document.getElementById('show')
         const inDescricao = document.getElementById('inDescricao')
         const inValor = document.getElementById('inValor')
+        const outPut = document.getElementById('outPut')
+        const outSoma = document.getElementById('outSoma')
+        const contas = []
 
         button.addEventListener('click', () => {
             let valor = inValor.value
             let descricao = inDescricao.value
+
+
+
+
+            if (descricao === '') {
+                alert("Digite o nome do produto")
+                inDescricao.focus()
+                return
+            }
 
             if (valor == 0 || isNaN(valor)) {
                 alert("Digite um número válido")
@@ -72,9 +92,38 @@
                 return
             }
 
-            let contas = []
-            
+
+            const conta = {
+                valor: valor,
+                descricao: descricao
+            };
+
+            contas.push(conta)
+
+            inDescricao.value = ''
+            inValor.value = ''
+
+            exibirContas()
         })
+
+        function exibirContas() {
+            let soma = 0
+
+            for (let i = 0; i < contas.length; i++) {
+                const conta = contas[i];
+                outPut.innerHTML += `<p>${conta.descricao} - R$ ${parseFloat(conta.valor).toFixed(2)}</p>`;
+                soma += parseFloat(conta.valor)
+            }
+            const quantidade = contas.length
+
+            outPut.innerHTML += `<p>${quantidade} Conta(s) - Total: R$ ${soma.toFixed(2)}</p>`
+
+
+        }
+
+
+
+
     </script>
 </body>
 
