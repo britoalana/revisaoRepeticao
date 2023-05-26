@@ -38,9 +38,7 @@
             margin-top: 1rem;
         }
 
-        .linha {
-            border: 1px solid black;
-        }
+    
     </style>
 </head>
 
@@ -57,7 +55,6 @@
             <hr>
             <div class="resultado">
                 <p id="outPut"></p>
-                <div class="linha"></div>
                 <p id="outSoma"></p>
             </div>
 
@@ -104,14 +101,16 @@
             inValor.value = ''
 
             exibirContas()
+            
         })
 
         function exibirContas() {
             let soma = 0
+            outPut.innerHTML = ''
 
             for (let i = 0; i < contas.length; i++) {
                 const conta = contas[i];
-                outPut.innerHTML += `<p>${conta.descricao} - R$ ${parseFloat(conta.valor).toFixed(2)}</p>`;
+                outPut.innerHTML += `<p>${conta.descricao} - R$ ${parseFloat(conta.valor).toFixed(2)}</p>`
                 soma += parseFloat(conta.valor)
             }
             const quantidade = contas.length
