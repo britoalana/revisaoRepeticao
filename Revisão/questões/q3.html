@@ -38,7 +38,10 @@
             margin-top: 1rem;
         }
 
-    
+        .linha{
+            border: 1px solid black;
+        }
+
     </style>
 </head>
 
@@ -55,6 +58,7 @@
             <hr>
             <div class="resultado">
                 <p id="outPut"></p>
+                <div class="linha"></div>
                 <p id="outSoma"></p>
             </div>
 
@@ -107,6 +111,7 @@
         function exibirContas() {
             let soma = 0
             outPut.innerHTML = ''
+            outSoma.innerHTML = ''
 
             for (let i = 0; i < contas.length; i++) {
                 const conta = contas[i];
@@ -115,7 +120,7 @@
             }
             const quantidade = contas.length
 
-            outPut.innerHTML += `<p>${quantidade} Conta(s) - Total: R$ ${soma.toFixed(2)}</p>`
+            outSoma.innerHTML += `<p>${quantidade} Conta(s) - Total: R$ ${soma.toFixed(2)}</p>`
 
 
         }
